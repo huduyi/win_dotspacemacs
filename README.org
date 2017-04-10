@@ -1,0 +1,10 @@
+
+* Install
+
+1. This is my windows spacemacs configuration
+2. Org agenda files should be like:
+   ~/workflow
+   ~/workflow/personal
+   ~/workflow/work
+   ...
+3. `git clone https://github.com/curiousbull/win_dotspacemacs .emacs.d`
