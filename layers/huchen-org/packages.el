@@ -105,10 +105,7 @@
 
      (setq org-agenda-span 'day)
 
-     (setq org-agenda-files (quote ("~/workflow/main"
-                                    "~/workflow/work/"
-                                    "~/workflow/personal"
-                                    "~/workflow/personal/interest")))
+     (setq org-agenda-files (quote ("~/workflow/main")))
 
      (setq org-directory "~/workflow/main")
 
@@ -148,6 +145,7 @@
                    ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
                    ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
                    ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
+
      ;;Org Mode Capture
      ;; Source: https://www.suenkler.info/docs/emacs-orgmode/
      (setq org-capture-templates
@@ -164,6 +162,9 @@
               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"
               :clock-in t :clock-resume t)
              ))
+
+     ;; Change task state to NEXT when clocking in
+     (setq org-clock-in-switch-to-state "NEXT")
 
      ;; Separate drawers for clocking and logs
      (setq org-drawers (quote ("PROPERTIES" "LOGBOOK")))

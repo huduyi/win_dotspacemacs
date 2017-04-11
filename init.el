@@ -137,7 +137,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(hemisu-light
+                         spacemacs-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -314,7 +315,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (spacemacs//set-monospaced-font "Source Code Pro" "BabelStone Han" 14 16)
+  ;;(spacemacs//set-monospaced-font "Source Code Pro" "BabelStone Han" 14 16)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
