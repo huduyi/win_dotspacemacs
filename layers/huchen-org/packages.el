@@ -58,7 +58,7 @@
 
       ;; see org-ref for use of these variables
       (setq org-ref-bibliography-notes "~/BaiduYun/bibliography/notes.org"
-            org-ref-default-bibliography '("~/BaidunYun/bibliography/references.bib")
+            org-ref-default-bibliography '("~/BaiduYun/bibliography/references.bib")
             org-ref-pdf-directory "~/BaiduYun/bibliography/bibtex-pdfs/")
       (setq bibtex-completion-bibliography "~/BaiduYun/bibliography/references.bib"
             bibtex-completion-library-path "~/BaiduYun/bibliography/bibtex-pdfs"
@@ -152,11 +152,15 @@
            '(
              ;; Create Todo under GTD.org -> Work -> Tasks
              ;; file+olp specifies to full path to fill the Template
-             ("w" "Work TODO" entry (file+olp "~/workflow/main/gtd.org" "Work" "Tasks")
+             ("w" "Work TODO" entry (file+olp "~/workflow/main/gtd.org" "Capture" "Work")
               "* TODO %? \n:PROPERTIES:\n:CREATED: %U\n:END:" :clock-in t :clock-resume t)
+             ("t" "todo" entry (file+olp "~/workflow/main/gtd.org" "Capture" "Miscellaneous")
+              "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+             ("r" "respond" entry (file+olp "~/workflow/main/gtd.org" "Capture")
+              "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
              ;; Create Todo under GTD.org -> Private -> Tasks
              ;; file+olp specifies to full path to fill the Template
-             ("p" "Private TODO" entry (file+olp "~/workflow/main/gtd.org" "Personal" "Tasks")
+             ("p" "Private TODO" entry (file+olp "~/workflow/main/gtd.org" "Capture" "Personal")
               "* TODO %? \n:PROPERTIES:\n:CREATED: %U\n:END:" :clock-in t :clock-resume t)
              ("h" "Habit" entry (file+olp "~/workflow/main/gtd.org" "Habit")
               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"
