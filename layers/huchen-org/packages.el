@@ -75,9 +75,6 @@
     (progn
       (package-initialize)
       (setq org-pomodoro-audio-player "mplayer.exe")
-      (add-hook 'org-pomodoro-finished-hook '(lambda () (zilongshanren/growl-notification "Pomodoro Finished" "☕️ Have a break!" t)))
-      (add-hook 'org-pomodoro-short-break-finished-hook '(lambda () (zilongshanren/growl-notification "Short Break" "🐝 Ready to Go?" t)))
-      (add-hook 'org-pomodoro-long-break-finished-hook '(lambda () (zilongshanren/growl-notification "Long Break" " 💪 Ready to Go?" t)))
       )
     )
   )
@@ -152,15 +149,15 @@
            '(
              ;; Create Todo under GTD.org -> Work -> Tasks
              ;; file+olp specifies to full path to fill the Template
-             ("w" "Work TODO" entry (file+olp "~/workflow/main/gtd.org" "Capture" "Work")
+             ("w" "Work TODO" entry (file+olp "~/workflow/main/gtd.org" "Work" "Tasks")
               "* TODO %? \n:PROPERTIES:\n:CREATED: %U\n:END:" :clock-in t :clock-resume t)
-             ("t" "todo" entry (file+olp "~/workflow/main/gtd.org" "Capture" "Miscellaneous")
+             ("t" "todo" entry (file+olp "~/workflow/main/gtd.org" "Miscellaneous" "TODOs")
               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-             ("r" "respond" entry (file+olp "~/workflow/main/gtd.org" "Capture")
+             ("r" "respond" entry (file+olp "~/workflow/main/gtd.org" "Miscellaneous" "Response")
               "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
              ;; Create Todo under GTD.org -> Private -> Tasks
              ;; file+olp specifies to full path to fill the Template
-             ("p" "Private TODO" entry (file+olp "~/workflow/main/gtd.org" "Capture" "Personal")
+             ("p" "Private TODO" entry (file+olp "~/workflow/main/gtd.org" "Personal" "Tasks")
               "* TODO %? \n:PROPERTIES:\n:CREATED: %U\n:END:" :clock-in t :clock-resume t)
              ("h" "Habit" entry (file+olp "~/workflow/main/gtd.org" "Habit")
               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"
