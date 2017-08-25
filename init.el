@@ -37,7 +37,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     chinese
+     ;;chinese
      ;;(han :variables
      ;;     han-enable-youdao-dict t
      ;;     ;; 在 Linux 下如果希望使用 fcitx 输入法，可以加入下面一行
@@ -53,7 +53,7 @@ values."
      python
      ipython-notebook
      huchen-org
-     huchen-misc
+     ;;huchen-misc
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -138,8 +138,7 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(gruvbox
-                         hemisu-light
+   dotspacemacs-themes '(hemisu-light
                          spacemacs-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.

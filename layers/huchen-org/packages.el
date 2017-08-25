@@ -32,48 +32,13 @@
 (defconst huchen-org-packages
   '(
     org
-    (org-edit-latex :location elpa)
-    (org-ref :location elpa)
-    (ob-ipython :location elpa)
     org-pomodoro
     )
   )
 
-(defun huchen-org/init-org-edit-latex()
-  ;; initialize my packages
-  (use-package org-edit-latex))
-
-(defun huchen-org/init-org-ref()
-  ;; initialize my packages
-  (use-package org-ref))
-
-(defun huchen-org/init-ob-ipython()
-  ;; initialize my packages
-  (use-package ob-ipython))
-
-(defun huchen-org/post-init-org-ref()
-  (with-eval-after-load 'org
-    (progn
-      (setq reftex-default-bibliography '("~/BaiduYun/bibliography/references.bib"))
-
-      ;; see org-ref for use of these variables
-      (setq org-ref-bibliography-notes "~/BaiduYun/bibliography/notes.org"
-            org-ref-default-bibliography '("~/BaiduYun/bibliography/references.bib")
-            org-ref-pdf-directory "~/BaiduYun/bibliography/bibtex-pdfs/")
-      (setq bibtex-completion-bibliography "~/BaiduYun/bibliography/references.bib"
-            bibtex-completion-library-path "~/BaiduYun/bibliography/bibtex-pdfs"
-            bibtex-completion-notes-path "~/BaiduYun/bibliography/helm-bibtex-notes")
-      ;; use org-ref-helm-cite instead of the default helm-bibtex
-      (setq org-ref-completion-library 'org-ref-helm-cite)
-      )
-    )
-  )
-
-
 (defun huchen-org/post-init-org-pomodoro()
   (with-eval-after-load 'org
     (progn
-      (package-initialize)
       (setq org-pomodoro-audio-player "mplayer.exe")
       )
     )
@@ -82,14 +47,6 @@
 (defun huchen-org/post-init-org()
  (with-eval-after-load 'org
    (progn
-     (require 'org-compat)
-     (require 'org)
-     (require 'ob-ipython)
-     ;; set for org-edit-latex
-     (setq org-edit-latex-mode t)
-      ;; refile configuration
-     (setq org-refile-use-outline-path 'file)
-     (setq org-outline-path-complete-in-steps nil)
      (setq org-refile-targets
            '((nil :maxlevel . 4)
              (org-agenda-files :maxlevel . 4)))
@@ -238,7 +195,7 @@
              "xelatex -interaction nonstopmode -output-directory %o %f"
              "rm -fr %b.out %b.log %b.tex auto"))
 
-      (spacemacs|disable-company org-mode)
+      ;;(spacemacs|disable-company org-mode)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "," 'org-priority)
 
