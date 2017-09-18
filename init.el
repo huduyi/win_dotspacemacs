@@ -43,7 +43,7 @@ values."
      ;;     ;; 在 Linux 下如果希望使用 fcitx 输入法，可以加入下面一行
      ;;     ;;han-enable-fcitx t
      ;;     han-org-line-spacing 0.2)
-     (auto-completion :disabled-for org)
+     auto-completion
      better-defaults
      themes-megapack
      emacs-lisp
@@ -53,7 +53,8 @@ values."
      python
      ipython-notebook
      huchen-org
-     ;;huchen-misc
+     huchen-misc
+     latex
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)

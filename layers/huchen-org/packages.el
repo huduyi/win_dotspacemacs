@@ -33,6 +33,7 @@
   '(
     org
     org-pomodoro
+    (org-ref :location (recipe :fetcher github :repo "jkitchin/org-ref"))
     )
   )
 
@@ -42,6 +43,16 @@
       (setq org-pomodoro-audio-player "mplayer.exe")
       )
     )
+  )
+
+(defun huchen-org/init-org-ref()
+  (use-package org-ref)
+  (setq reftex-default-bibliography '("~/workflow/bibliography/references.bib"))
+
+  ;; see org-ref for use of these variables
+  (setq org-ref-bibliography-notes "~/workflow/bibliography/notes.org"
+        org-ref-default-bibliography '("~/workflow/bibliography/references.bib")
+        org-ref-pdf-directory "~/workflow/bibliography/bibtex-pdfs/")
   )
 
 (defun huchen-org/post-init-org()
