@@ -37,7 +37,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ;;chinese
+     chinese
      ;;(han :variables
      ;;     han-enable-youdao-dict t
      ;;     ;; 在 Linux 下如果希望使用 fcitx 输入法，可以加入下面一行
@@ -45,13 +45,14 @@ values."
      ;;     han-org-line-spacing 0.2)
      auto-completion
      better-defaults
-     themes-megapack
+     ;; themes-megapack
      emacs-lisp
      git
      markdown
      org
-     python
-     ipython-notebook
+     (python :variables 
+	     python-test-runner '(pytest nose)
+	     python-enable-yapf-format-on-save t)
      huchen-org
      huchen-misc
      latex
@@ -139,15 +140,14 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(hemisu-light
-                         spacemacs-dark
-                         spacemacs-light)
+   dotspacemacs-themes '(spacemacs-light
+                         spacemacs-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 16 
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -318,18 +318,19 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;;解决org表格里面中英文对齐的问题
-  (when (configuration-layer/layer-usedp 'chinese)
-    (when (and (spacemacs/system-is-mswindows) window-system)
-      (spacemacs//set-monospaced-font "Source Code Pro" "Hiragino Sans GB" 14 16)))
-  ;;(spacemacs//set-monospaced-font "Source Code Pro" "BabelStone Han" 14 16)
+  ;; (when (configuration-layer/layer-usedp 'chinese)
+  ;;   (when (and (spacemacs/system-is-mswindows) window-system)
+  ;;     (spacemacs//set-monospaced-font "Source Code Pro" "Hiragino Sans GB" 1
+  ;;                                    6 18)))
+  ;; (spacemacs//set-monospaced-font "Source Code Pro" 16)
   (when (and (spacemacs/system-is-mswindows) window-system)
     (setq ispell-program-name "aspell")
     (setq w32-pass-alt-to-system nil)
     (setq w32-apps-modifier 'super)
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font)
-                        charset
-                        (font-spec :family "Microsoft Yahei" :size 14))))
+                         charset
+                        (font-spec :family "Microsoft Yahei" :size 16))))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
